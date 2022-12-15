@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrati a TasteStream</title>
+    <link rel="stylesheet" href="./css/registration_page.css">
+</head>
+
+<body>
+    <img src="./img/logo_taste_stream.png" width="500px" height="auto" alt="logo" />
+    <h1 id="company">Registrati a TasteStream</h1>
+    <h2 id="payoff">Ascolta con gusto</h2>
+    <h3>Inscriviti gratuitamente per iniziare ad ascolare</h3>
+    <div style="float: left;">
+        <form action="" method="post" class="registration_form" onsubmit="alert('Form inviato!')">
+            <fieldset>
+            <div>
+                <input  type="text" name="name" placeholder="Nome...." />
+
+                <input type="text" name="last_name" placeholder="Cognome...." />
+            </div>
+            <div>
+                <input type="email" name="email" placeholder="La tua mail.." />
+                <input type="password" name="password" placeholder="La tua password" />
+            </div>
+            <div class="left_fields">
+                <label for="date">Data di nascita</label>
+                <input type="date" name="date" id="date" />
+                
+
+
+                <label for="date">Telefono</label>
+                <input type="number" name="phone" placeholder="+39 ********" />
+            </div>
+            <div>
+                <label for="privacy"><input type="checkbox" name="privacy" id="privacy" required>
+                <a href="#">Accetto i termini d'uso di TasteStream</a></label>
+            </div>
+            <button type="submit">Iscriviti</button>
+            </fieldset>
+            <p> Hai già un account? <a href="#">Accedi</a></p>
+        </form>
+    </div>
+</body>
+
+</html>
