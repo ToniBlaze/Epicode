@@ -1,0 +1,68 @@
+input{
+    font: size 15px;
+    padding:10px 5px;
+    border: 1px solid lightseagreen;
+}
+::placeholder { 
+    color: rgb(184, 179, 179);
+    opacity: 0.7; 
+  }
+  
+  :-ms-input-placeholder {
+    color: rgb(184, 179, 179);
+  }
+  
+  ::-ms-input-placeholder { 
+    color: rgb(184, 179, 179);
+  }
+ 
+body{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+#payoff{
+    margin:0;
+}
+#company{
+    margin-bottom: 0px;
+}
+label{
+    display: block;
+    font-weight: 600;
+    margin-left: 20px;
+}
+fieldset {
+    border:none;
+}
+
+.registration_form input{
+    margin: 20px;
+
+}
+#name{
+    font-size:40px;
+}
+.left_fields{
+    width: 350px;
+    text-align: left;
+    padding: 20px;
+
+}
+.left_fields input{
+margin-top:8px;
+
+}
+button[type="submit"]{
+padding: 20px 40px;
+background-color: lightseagreen;
+border: none;
+box-shadow: 1px 1px 5px rgba(32, 178, 171, 0.426);
+color:white;
+border-radius: 10px;
+font-size:20px;
+margin-top:20px;
+}

@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+h1 {
+    font-family: 'Prata', sans-serif;
+    font-size: 64px;
+    font-weight: 400;
+    
+}
+h3{
+    font-size 24px;
+    margin-top: 0;
+}
+h1,h3{
+    margin-bottom: 0;
+}
+h6{
+    padding: 22px;
+    margin: 56px 0 0;
+    color : white;
+    border-radius: 6px;
+}
+ul{
+    list-style: none;
+    padding:0;
+}
+ul a{
+    text-decoration: none;
+}
+
+#main-section {
+    padding:20px;
+}
+.image-container {
+
+height: 500px;
+width: 100%;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+}
+#img-sahara {
+    background-image: url("./img/sahara.jpg");
+}
+#img-kalahari {
+    background-image: url("./img/kalahari.jpg");
+}
+#img-karakum {
+    background-image: url("./img/karakum.jpg");
+}
+#img-rub {
+    background-image: url("./img/rub.jpg");
+}
+#img-colorado {
+    background-image: url("./img/colorado.jpg");
+}
+#img-gobi {
+    background-image: url("./img/gobi.jpg");
+}
+#author{
+    font-weight: 600;
+    font-style: italic;
+}
+#list_index a{
+    color:#ECAB75;
+}
+#related_index{
+
+    background: linear-gradient(90deg, #ECAB75, #BA6733);
+}
+#list_karakum a{
+    color:#D8B87F;
+}
+#related_karakum{
+     background: linear-gradient(90deg, #D8B87F, #A99F96);
+}
+#list_kalahari a{
+    color:#B58B59;
+}
+#related_kalahari{
+     background: linear-gradient(90deg, #b5ac59, #BF793E);
+}
+#list_rub a{
+    color:#A88369;
+}
+#related_rub{
+     background: linear-gradient(90deg, #A88369, #6B4230);
+}
+#list_gobi a{
+    color:#A88369;
+}
+#related_gobi{
+     background: linear-gradient(90deg, #A88369, #6B4230);
+}
+#list_colorado a{
+    color:#F9D3A6;
+}
+#related_colorado{
+     background: linear-gradient(90deg, #F9D3A6, #5F321B);
+}
+.footer {
+    background-color: black;
+
+    text-align: center;
+}
+.footer a {
+    color:white;
+    text-decoration:none
+}
