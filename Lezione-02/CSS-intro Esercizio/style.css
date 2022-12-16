@@ -1,7 +1,5 @@
 body {
     margin: 0;
-
-
 }
 
 body a {
@@ -14,7 +12,8 @@ header {
 
 #logo img {
     width: 200px;
-    margin: 0 0 20px
+    margin: 0 0 20px;
+    box-shadow: 1px solid grey;
 }
 
 #desclaimer {
