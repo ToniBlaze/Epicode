@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+
+
+}
+
+body a {
+    color: #008080;
+}
+
+header {
+    text-align: center;
+}
+
+#logo img {
+    width: 200px;
+    margin: 0 0 20px
+}
+
+#desclaimer {
+    background-color: lightyellow;
+    width: 100%;
+    text-align: center;
+    border-top: 2px solid gold;
+    height: 3em;
+    color: #008080;
+}
+
+#desclaimer span {
+    font-weight: 700;
+}
+
+main {
+    width: 40em;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+hr {
+
+    border-top: 1px solid aquamarine;
+}
+
+h3 {
+    text-transform: uppercase;
+    margin: 0;
+    color: orangered;
+}
+
+#author {
+    color: grey;
+    text-align: center;
+
+}
+
+#focaccia-img img {
+    border-radius: 10px;
+    width: 40em;
+}
+h2{
+    font-weight: 400;
+}
+article{
+    border-top:2em;
+}
