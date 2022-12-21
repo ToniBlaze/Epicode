@@ -65,3 +65,7 @@ h2{
 article{
     border-top:2em;
 }
+#featured{
+    border-left: 1px solid gold;
+    padding-left: 15px;
+}
