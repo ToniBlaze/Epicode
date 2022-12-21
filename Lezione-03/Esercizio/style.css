@@ -9,7 +9,6 @@ body {
 
 #logo {
     width: 12em;
-    padding: 1em 2em;
 }
 #call-to-action{
     margin: 0 1.4em;
@@ -113,13 +112,11 @@ footer {
 }
 
 .white-txt {
-    color: white
+    color: white;
 }
-
-#top-footer {
-    padding: 1em;
+.pad-1-2{
+    padding: 1em 2em;
 }
-
 .bg-light-blue {
     background-color: #354758;
 }
