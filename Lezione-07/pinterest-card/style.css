@@ -47,7 +47,7 @@
     opacity: 0;
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 74%, rgba(255, 255, 255, 0.0959734235491071) 100%);
-    transition: opacity 1s cubic-bezier(0, .43, 1, .11);
+    transition: opacity .7s cubic-bezier(0, .43, 1, .11);
 }
 
 .bottom_controls {
@@ -60,7 +60,7 @@
     margin: auto;
     transform: translateY(100%);
     opacity: 0;
-    transition: transform 1s linear, opacity 1s linear;
+    transition: transform .7s linear, opacity .7s linear;
 }
 
 .bottom_controls div {
@@ -121,7 +121,7 @@
     box-shadow: 1px 1px 5px rgb(0 0 0 / 40%);
     transform: translateY(-100%);
     opacity: 0;
-    transition: transform 1s linear, opacity 1s linear;
+    transition: transform .7s linear, opacity .7s linear;
     cursor: pointer;
 }
 
