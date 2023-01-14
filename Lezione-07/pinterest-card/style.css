@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+
+}
+
+.card {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 20px;
+    width: 350px;
+    height: 450px;
+    overflow: hidden;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+}
+
+.card_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.overlay {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 74%, rgba(255, 255, 255, 0.0959734235491071) 100%);
+    transition: opacity 1s cubic-bezier(0, .43, 1, .11);
+}
+
+.bottom_controls {
+    position: absolute;
+    bottom: 0;
+    width: fit-content;
+    top: 380px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 1s linear, opacity 1s linear;
+}
+
+.bottom_controls div {
+    display: inline-block;
+    background: rgb(224 222 222 / 80%);
+    font-size: 1.4em;
+    border-radius: 50%;
+    width: 47px;
+    height: 47px;
+    text-align: center;
+    line-height: 47px;
+    overflow: hidden;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.bottom_controls div:first-of-type {
+    border-radius: 30px;
+    width: 200px;
+    height: 47px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 0 10px;
+}
+
+.bottom_controls div:last-of-type {
+    line-height: 49px;
+}
+
+.bottom_controls div:first-of-type span {
+    margin-left: 8px;
+}
+
+.save-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-transform: capitalize;
+    font-size: 1.4em;
+    color: white;
+    background: red;
+    height: 65px;
+    line-height: 65px;
+    width: 97px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 40%);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 1s linear, opacity 1s linear;
+    cursor: pointer;
+}
+
+.card:hover .overlay {
+    opacity: .4;
+}
+
+.card:hover .bottom_controls,
+.card:hover .save-btn {
+    transform: translate(0);
+    opacity: 1;
+}
