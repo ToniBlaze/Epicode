@@ -90,8 +90,19 @@
     line-height: 49px;
 }
 
-.bottom_controls div:first-of-type span {
-    margin-left: 8px;
+/* .bottom_controls div:first-of-type span::before {
+    content:'\2197';
+} */
+
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' 200,
+  'opsz' 22;
+  line-height: 20px;
+  position: relative;
+  top: 5px;
 }
 
 .save-btn {
