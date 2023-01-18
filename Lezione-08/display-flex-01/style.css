@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    height: 100vh;
+}
+
+header {
+    width: 100vw;
+    height: 10vh;
+    background-color: cadetblue;
+}
+
+main {
+    display: flex;
+    align-items: stretch;
+    height: 80vh;
+
+}
+
+footer {
+    width: 100vw;
+    height: 10vh;
+    background-color: cadetblue;
+}
+
+nav {
+    width: 20vw;
+    background-color: orange
+}
+
+article {
+    width: 50vw;
+    background-color: gold;
+
+}
+
+aside {
+    width: 30vw;
+    background-color: lightyellow;
+}
