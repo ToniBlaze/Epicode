@@ -1,24 +1,37 @@
-.content {
-    margin-left: 2px;
+.calculator-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width:600px;
+    height: 800px;
+
 }
-.tasto {
+.row {
+    margin-left: 2px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 15%;
+
+}
+.key {
     background-color: #a5cff3 ;
     color: #175c97;
     font-size: 22pt;
     border: none;
     margin: 4px 2px;
-    height: 40px;
-width: 46px;
+    height: 100%;
+width: 25%;
 }
 .display {
     background: none;
     color: #175c97;
-    font-size: 24pt;
+    font-size: 48pt;
     border: #175c97 solid 2px;
     margin: 4px 2px;
-    width: 204px;
-    height: 40px;            
+    width: 100%;
+    height: 100%;            
 }
 .uguale {
-    width: 208px;
+    width: 100%;
 }

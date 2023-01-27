@@ -1,8 +1,8 @@
-function n(dato){ 
-    document.getElementById("operazioni").value += dato;
+function pass(elem){ 
+    document.getElementById("operazioni").value += elem;
  }
  
- function operazione() { 
+ function calc() { 
  document.getElementById("operazioni").value = eval(document.getElementById("operazioni").value); 
  }
  
