@@ -12,42 +12,70 @@ REGOLE
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+/*La programmazione consiste nell'eseguire operazioni con e sui dati
+ in Javascript possono essere trattati tipi diversi di Datatypes:
+ Alcune Primitivi:
+ Number : l' insieme dei compresi fra -(253-1) e +(253-1);
+ String : testo ovvero sequenze di caratteri delimitata da apici virgolette e backticks;
+ Boolean : vero o falso secondo le logiche booleane
+ undefined : non ancora definito lo stato iniziale di una variable non definita;
+ null : vuoto o zero;
+ BigInt : grandi numeri;
+ Symbol : simboli;
+ Altri definiti Structural Types:
+ Object : collezioni di valori associati espressi in key values;
+ Functions : insieme di operazioni da eseguire;
+ Arrays : liste di ognuno dei precedenti dati;
+*/
 
 /* ESERCIZIO 2
  Descrivi cos'è un oggetto in JavaScript, con parole tue.
+
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
+/* SCRIVI QUI LA TUA RISPOSTA  */
+//  Un oggetto è un tipo di dati strutturale che rappresenta una stessa entità attraverso una somma di variabili.
+//  All' interno di un oggetto le variabili e i loro valori si esprimono come coppie di key-values.
+
 
 /* ESERCIZIO 3
  Scriti il codice necessario ad effettuare un addizione (una somma) dei numeri 12 e 20.
 */
-
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log(12+20);
 
 /* ESERCIZIO 4
  Crea una variable di nome "x" e assegna ad essa il numero 12.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+let x = 12
+console.log(x);
 
 /* ESERCIZIO 5
  Crea una variable chiamata "name" e assegna ad essa il tuo nome, sotto forma di stringa.
 */
 
-/* SCRIVI QUI LA TUA RISPOSTA */
 
+/* SCRIVI QUI LA TUA RISPOSTA */
+let name = "Giorgio";
+ console.log(name);
 /* ESERCIZIO 6
  Esegui una sottrazione tra i numeri 4 e la variable "x" appena dichiarata (che contiene il numero 12).
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+console.log(4-x);
+
 
 /* ESERCIZIO 7
  Crea due variabili: "name1" e "name2". Assegna a name1 la stringa "john", e assegna a name2 la stringa "John" (con la J maiuscola!).
  Verifica che name1 sia diversa da name2 (suggerimento: è la stessa cosa di verificare che la loro uguaglianza sia falsa).
  Infine, verifica che la loro uguaglianza diventi true se entrambe vengono trasformate in lowercase (senza cambiare il valore di name2!).
- NON HAI BISOGNO DI UN BLOCCO IF/ELSE. E' sufficiente utilizzare console.log().
-*/
+ NON HAI BISOGNO DI UN BLOCCO IF/ELSE. E' sufficiente utilizzare console.log().*/
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+let name1 = "john";
+let name2 = "John";
+console.log(name1 != name2);
+console.log(name1.toLowerCase() == name2.toLowerCase());
