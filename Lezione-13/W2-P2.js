@@ -34,6 +34,7 @@ console.log(array3);
 /* ESERCIZIO 4
   Scrivi del codice per ricavare solamente i valori PARI da un array composto da soli valori numerici.
  */
+//Con accumulatore
 array4 = [7, 8, 23, 45, 78, 15, 62];
 arrayResult4 = [];
 for (let i = 0; i < array4.length; i++) {
@@ -42,6 +43,17 @@ for (let i = 0; i < array4.length; i++) {
   }
 }
 console.log(arrayResult4);
+
+//Senza accumulatore
+array4bis = [7, 8, 23, 45, 78, 15, 62];
+for (let i = 0; i < array4bis.length; i++) {
+  if (array4bis[i] % 2 !== 0) {
+    array4bis.splice(i, 1);
+    i--
+  }
+}
+console.log(array4bis);
+
 /* ESERCIZIO 5
   Scrivi del codice per sommare a catena i numeri contenuti in un array.
  */
@@ -55,6 +67,7 @@ console.log(sum);
 /* ESERCIZIO 6
   Scrivi del codice per incrementare di 1 tutti i valori numerici in un array.
 */
+//Con accumulatore
 let array6 = [1, 2, 3, 4, 5, 6, 7];
 let arrayResult6 = [];
 for (i = array6.length - 1; i >= 0; i--) {
@@ -62,6 +75,14 @@ for (i = array6.length - 1; i >= 0; i--) {
   arrayResult6.push(elem);
 }
 console.log(arrayResult6);
+
+//Senza accumulatore
+let array6bis = [1, 2, 3, 4, 5, 6, 7];
+
+for (i = array6bis.length - 1; i >= 0; i--) {
+array6bis.splice(i, 1,array6bis[i]+1);
+}
+console.log('Risultato Es.6: '+ array6bis);
 /* ESERCIZIO 7 (EXTRA)
   Scrivi del codice per eliminare solo i valori PARI da un array.
 */
@@ -104,8 +125,8 @@ for (i = 0; i < array9.length; i++) {
 console.log(array9);
 /* ESERCIZIO 10
   Scrivi un algoritmo in grado di invertire un array.
-  es: [1, 3, 5] ==> [5, 3, 1]
-*/
+  es: [1, 3, 5] ==> [5, 3, 1]*/
+
 let array10 = [1, 3, 5];
 let array10Reversed = [];
 //console.log(array10.reverse());
@@ -114,6 +135,7 @@ for (let i = array10.length - 1; i >= 0; i--) {
 }
 array10 = array10Reversed;
 console.log(array10);
+
 
 /* ESERCIZIO 11
   Scrivi del codice per estrarre il massimo valore numerico da un array.
@@ -252,8 +274,7 @@ for (let index = 0; index < movies.length; index++) {
   if (oldestFilm) {
     if (elem.Year < oldestFilm.Year) {
       oldestFilm = elem;
-    } else {
-    }
+    } 
   } else {
     oldestFilm = elem;
   }
@@ -329,10 +350,15 @@ function searchFilm(x) {
   for (let index = 0; index < movies.length; index++) {
 
     const element = movies[index];
-    if (element.Title.indexOf(x) > 0) {
+    if (element.Title.indexOf(x) > -1) {
       searchedMovies.push(element);
     }
   }
   return searchedMovies;
 }
 console.log(searchFilm('Lord'));
+let arr3 = [4, 94, 82, 14, 3, 150]
+
+for (let i = 0; i < arr3.length; i++) {
+  arr3[i] += 1
+} console.log(arr3);
