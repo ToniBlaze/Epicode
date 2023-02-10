@@ -1,31 +1,29 @@
 // Esercizi aggiuntivi
-function isNumber(value) 
-{
-   return typeof value === 'number';
+function isNumber(value) {
+    return typeof value === 'number';
 }
-function isPositiveInteger(s)
-{
-    var i = +s; 
-    if (i < 0) return false; 
+function isPositiveInteger(s) {
+    var i = +s;
+    if (i < 0) return false;
     if (i != ~~i) return false;
     return true;
 }
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-  
+
     return Math.floor(Math.random() * (max - min) + min);
-  }
-function giveMeRandom(n, min, max){
-if (isPositiveInteger(n)){
-    array  =[];
-    for (let index = 0; index < n; index++) {
-         array[index] =  getRandomInt(min, max);
-    }
-return array;
-}else{
-    return `${positiveInteger} non è un numero positivo`;
 }
+function giveMeRandom(n, min, max) {
+    if (isPositiveInteger(n)) {
+        array = [];
+        for (let index = 0; index < n; index++) {
+            array[index] = getRandomInt(min, max);
+        }
+        return array;
+    } else {
+        return `${positiveInteger} non è un numero positivo`;
+    }
 }
 /* EXTRA 1
  Scrivi una funzione chiamata "checkArray", che riceve come parametro un array di numeri random (creati con giveMeRandom)
@@ -35,18 +33,18 @@ return array;
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-function checkArray(array){
+function checkArray(array) {
 
-    sum=0;
-for(const element of array){
-if (element > 5){
-    console.log(true,element);
-    sum+=element;
+    sum = 0;
+    for (const element of array) {
+        if (element > 5) {
+            console.log(true, element);
+            sum += element;
+        }
+    }
+    return sum;
 }
-}
-return sum;
-}
-console.log('Somma elementi random: ',checkArray(giveMeRandom(20,0,10)));
+//console.log('Somma elementi random: ',checkArray(giveMeRandom(20,0,10)));
 /* EXTRA 2
  Nel tuo sito e-commerce hai un array di oggetti chiamato shoppingCart. Ognuno di questi oggetti ha un prezzo, un nome, un id e la quantità da spedire.
  Crea una funzione chiamata "shoppingCartTotal" che calcola il totale dovuto al negozio.
@@ -58,19 +56,19 @@ const shoppingCart = [
         'nome': 'laptop',
         'id': '89uja900',
         'qty': 1,
-        'pc':500
+        'pc': 500
     },
     item2 = {
         'nome': 'trackpad',
         'id': '89ak900',
         'qty': 2,
-        'pc':210
+        'pc': 210
     },
     item3 = {
         'nome': 'pen',
         'id': '89ujrr00',
         'qty': 10,
-        'pc':1
+        'pc': 1
     },
 
 ];
@@ -78,21 +76,21 @@ const item4 = {
     'nome': 'pen',
     'id': '89ujrr00',
     'qty': 10,
-    'pc':1
+    'pc': 1
 };
-function shoppingCartTotal(cart){
-    if(!Array.isArray(cart)){
+function shoppingCartTotal(cart) {
+    if (!Array.isArray(cart)) {
         let sum = cart.qty * cart.pc;
         return sum;
-    }else{
-        let sum=0;
-        for(const item of cart){
-            sum += item.qty*item.pc;
+    } else {
+        let sum = 0;
+        for (const item of cart) {
+            sum += item.qty * item.pc;
         }
         return sum;
     }
 }
-console.log('Totale carrelo: ',shoppingCartTotal(item4));
+//console.log('Totale carrelo: ',shoppingCartTotal(item4));
 
 /* EXTRA 3
  Nel tuo sito e-commerce hai un array di oggetti chiamato shoppingCart. Ognuno di questi oggetti ha un prezzo, un nome, un id e la quantità da spedire.
@@ -100,17 +98,17 @@ console.log('Totale carrelo: ',shoppingCartTotal(item4));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-function isItemCorrect(item){
-    if(item.pc && item.nome && item.id && item.qty && item.pc) return true;
+function isItemCorrect(item) {
+    if (item.pc && item.nome && item.id && item.qty && item.pc) return true;
     return false;
 }
 function addToShoppingCart(item) {
-    if(isItemCorrect(item)) {
+    if (isItemCorrect(item)) {
         shoppingCart.push(item);
         console.log(shoppingCart.length);
+    }
 }
-}
-addToShoppingCart(item4);
+//addToShoppingCart(item4);
 /* EXTRA 4
  Nel tuo sito e-commerce hai un array di oggetti chiamato shoppingCart. Ognuno di questi oggetti ha un prezzo, un nome, un id e la quantità da spedire.
  Crea una funzione chiamata "maxShoppingCart" che riceve l'array shoppingCart e ritorna l'oggetto più costoso in esso contenuto.
@@ -118,18 +116,18 @@ addToShoppingCart(item4);
 
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-function maxShoppingCart(cart){
-    if(Array.isArray(cart)){
-        let maxItem = {'pc':0} ;
-        for(const item of cart){
-        if(maxItem.pc < item.pc) maxItem = item;
-        } 
+function maxShoppingCart(cart) {
+    if (Array.isArray(cart)) {
+        let maxItem = { 'pc': 0 };
+        for (const item of cart) {
+            if (maxItem.pc < item.pc) maxItem = item;
+        }
         return maxItem;
-    }else{
+    } else {
         return cart;
     }
 }
-console.log(maxShoppingCart(shoppingCart));
+//console.log(maxShoppingCart(shoppingCart));
 /* EXTRA 5
  Nel tuo sito e-commerce hai un array di oggetti chiamato shoppingCart. Ognuno di questi oggetti ha un prezzo, un nome, un id e la quantità da spedire.
  Crea una funzione chiamata "latestShoppingCart" che riceve l'array shoppingCart e ritorna l'ultimo oggetto in esso contenuto.
@@ -137,15 +135,15 @@ console.log(maxShoppingCart(shoppingCart));
 
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-function latestShoppingCart(cart){
-    if(Array.isArray(cart)){
+function latestShoppingCart(cart) {
+    if (Array.isArray(cart)) {
         return cart[cart.length - 1];
-    }else{
-return cart;
+    } else {
+        return cart;
     }
 }
 
-console.log(latestShoppingCart(shoppingCart));
+//console.log(latestShoppingCart(shoppingCart));
 
 /* EXTRA 6
  Crea una funzione chiamata "loopUntil" che riceve come parametro un intero "x" compreso tra 0 e 9.
@@ -153,16 +151,18 @@ console.log(latestShoppingCart(shoppingCart));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
-function loopUntil(n, min, max,x){
+function loopUntil(n, min, max, x) {
     counter = 0;
-    while(counter <= n){
-let rand = getRandomInt(min, max);
+    while (counter <= n) {
+        let rand = getRandomInt(min, max);
         console.log(rand);
-        if(rand >= x){
+        if (rand >= x) {
             counter++;
+        } else {
+            counter = 0;
         }
     }
-
+return '';
 }
 
 console.log(loopUntil(3,0,9,4));
@@ -172,22 +172,22 @@ console.log(loopUntil(3,0,9,4));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
- function average(array) {
-     if(Array.isArray(array)){
-         let sum = 0;
-         for(const item of array){
-         if(isNumber(item)){
-             sum += item;
-         }else{
-             return `${array} non è un array valido.`
-         }
-     }
-     return sum / array.length;
-     }else{
+function average(array) {
+    if (Array.isArray(array)) {
+        let sum = 0;
+        for (const item of array) {
+            if (isNumber(item)) {
+                sum += item;
+            } else {
+                return `${array} non è un array valido.`
+            }
+        }
+        return sum / array.length;
+    } else {
         return `${array} non è un array valido.`
-     }
- }
-console.log(average([4,5,6,2,1]));
+    }
+}
+//console.log(average([4,5,6,2,1]));
 
 /* EXTRA 8
  Scrivi una funzione chiamata "longest" che ricerca la stringa più lunga all'interno del parametro ricevuto (un array di stringhe).
@@ -195,19 +195,51 @@ console.log(average([4,5,6,2,1]));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+es8Array = ['jadoasndkacnxlò', 'oasijoksancjnaqoo', 'questa è sicuramente la più lunga di tutte ne sono sicuro'];
+
+function longest(array) {
+    if (Array.isArray(array)) {
+        let longest = '';
+        for (const item of array) {
+            longest = item.length > longest.length ? item : longest;
+        }
+        return longest;
+
+    } else {
+        `${array} non è un array valido`;
+    }
+}
+console.log(longest(es8Array));
 /* EXTRA 9
  Scrivi una funzione per creare un filtro anti spam molto semplice per una casella email. La funzione riceve una stringa come parametro, "emailContent", e ritorna un boolean.
  La funzione deve tornare true se emailContent NON contiene le parole "SPAM" o "SCAM".
 */
+function antiSpam(str) {
+    if (typeof str === 'string' || str instanceof String) {
+        return !(str.includes('SPAM') || str.includes('SCAM'));
 
+    } else if (Array.isArray(str)) {
+        for (const element of str) {
+            return !(element.includes('SPAM') || element.includes('SCAM'));
+        }
+    }
+}
+console.log(antiSpam("SCAM SHIT"));
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 /* EXTRA 10
  Scrivi una funzione che riceve come parametro una data e ritorna il numero di giorni passati ad oggi.
 */
 
+
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+function dateDiff(date) {
+    const today = new Date();
+    const diffTime = Math.abs(date - today);
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+}
+console.log(dateDiff(new Date('2023-01-01')));
 /* EXTRA 11
  Scrivi una funzione chiamata "matrixGenerator" che riceve come parametri due interi, "x" e "y".
  La funzione deve tornare una matrice di x volte y, e ogni valore deve rappresentare l'indice dell'elemento.
@@ -217,3 +249,13 @@ console.log(average([4,5,6,2,1]));
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+function matrixGenerator(x, y) {
+    matrix = [];
+    for (col=0;col < y; col++) {
+        for (row=0 ; row < x; row++) {
+            matrix.push('' + col + row );
+        }
+    }
+    return matrix;
+}
+console.log(matrixGenerator(3, 2));
