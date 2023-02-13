@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+
+    padding: 10px;
+    border-radius: 5px;
+    border-color: lightgrey;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+h1 {
+    margin: 100px 0;
+    font-size: 35px;
+    font-variant: small-caps;
+}
+
+button {
+    padding: 10px;
+    border-radius: 2px;
+    background-color: darkolivegreen;
+    color: white;
+    border-color: transparent;
+}
+
+#results {
+    max-width: 450px;
+    margin: 30px;
+    list-style: auto;
+}
+
+#results li {
+    margin-top: 15px;
+    color: #605f5f;
+}
