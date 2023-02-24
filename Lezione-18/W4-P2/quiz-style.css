@@ -3,6 +3,9 @@
     padding:0;
     box-sizing: border-box;
 }
+#result-heading{
+    display:none
+}
 .quiz-container {
 position:fixed;
 top:0;
@@ -14,6 +17,7 @@ display:flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+padding:5%;
 
 }
 h1{
@@ -22,7 +26,7 @@ h1{
 }
 .questions-box{
     transition: transform 1s ease;
-    transform: translateX(-100vh);
+    transform: translateX(-100vw);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,16 +41,22 @@ h1{
     background:white;
 }
 .answer_btn:focus{
-    border-color: rgb(39, 174, 73)
+    border-color: rgb(39, 174, 73);
+    box-shadow: 1px 1px 9px rgb(39, 174, 73) ;
 
 }
 #submit_btn{
-    border: 3px solid grey;
+    border: 3px solid darkgreen;
     width:230px;
     height:60px;
     margin:20px 10px;
     border-radius:15px;
-    background:brown;
+    background:darkcyan;
     color:white;
 
+}
+
+#submit_btn:disabled{
+    border: 3px solid grey;
+    background:grey;
 }

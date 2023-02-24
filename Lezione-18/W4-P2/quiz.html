@@ -35,12 +35,17 @@
 
 <body cz-shortcut-listen="true">
   <div class="quiz-container">
+    <section id="result-heading">
+      <h1 id="result-disclaimer"></h1>
+      <h2 id="result-score">Hai totalizzato <span id="score-num"></span> punti</h2>
+    </section>
+
     <div class="questions-box">
-    <section>
+    <section id="question-heading">
       <h5 id="category"></h5>
       <h1 id="question"></h1>
-
     </section>
+
 
     
       <!--  <div class="left-buttons">
@@ -61,7 +66,7 @@
         <input type="hidden" id="answer_field">
       </div>
     
-    <button id="submit_btn" onclick="checkAnswer()">Conferma</button>
+    <button id="submit_btn" onclick="checkAnswer()" disabled>Conferma</button>
   </div>
 
   </div>
@@ -199,7 +204,7 @@
     let score = 0;
 
     function createQuestion(i) {
-      if (index < questions.length) {
+      
         document.querySelector('.questions-box').style.transform = 'translateX(0)';
         document.getElementById('question').innerText = questions[i].question;
         document.getElementById('category').innerText = questions[i].category;
@@ -222,10 +227,12 @@
           document.querySelectorAll('.answer_btn')[ind].innerText = possibleAnswersLabel[ind];
 
         }
-      }
+      
     }
     function setValue(val) {
+
       document.getElementById('answer_field').value = val;
+      document.getElementById('submit_btn').disabled = false;
 
     }
     createQuestion(index);
@@ -242,23 +249,52 @@
         score++;
         index++;
         setTimeout(function(){
-        document.querySelector('.questions-box').style.transform = 'translateX(-100vh)';
+        document.querySelector('.questions-box').style.transform = 'translateX(-100vw)';
         },500);
         
       } else {
         console.log(questions[index].correct_answer);
+        document.getElementById('submit_btn').style.backgroundColor = 'brown';
+        document.getElementById('submit_btn').style.borderBlockColor = 'brown';
         document.getElementById('submit_btn').innerText = 'SBAGLIATO!';
         console.log('ERROR');
         index++
         setTimeout(function(){
-        document.querySelector('.questions-box').style.transform = 'translateX(-100vh)';
+        document.querySelector('.questions-box').style.transform = 'translateX(-100vw)';
         },500);
       }
+      if (index < questions.length) {
       setTimeout(function () {
+        document.getElementById('submit_btn').style = '';
+        document.getElementById('submit_btn').disabled = true;
         document.getElementById('submit_btn').innerText = 'CONFERMA!';
         createQuestion(index);
-
       }, 2000);
+    }else{
+      let disclaimer = document.getElementById('result-disclaimer');
+      switch(true){
+        case score <= 2 :
+      disclaimer.innerText = 'FAI CAGARISSIMO';
+      break;
+      case score >2 && score <=6 :
+      disclaimer.innerText = 'FAI SCHIFO';
+      break;
+      case score >6 && score <=7 :
+      disclaimer.innerText = 'BRAVO MA PUOI FARE MEGLIO';
+      break;
+      case score >7 && score <=9 :
+      disclaimer.innerText = 'SEI UN GRANDE!!';
+      break;
+      case score ==9 :
+      disclaimer.innerText = 'MA CHI CAZZO SEI! IL NUMERO UNO!';
+      break;
+
+      }
+      document.getElementById('score-num').innerText = score;
+      document.getElementById('result-heading').style.display = 'block';
+
+
+    }
     }
   </script>
 </body>
