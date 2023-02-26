@@ -30,45 +30,42 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;700;800&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="quiz-style.css">
 </head>
 
 <body cz-shortcut-listen="true">
   <div class="quiz-container">
+    <div id="timer"><span id="time"></span></div>
+    <section id="start">
+      <button id="start_btn">START</button>
+    </section>
     <section id="result-heading">
       <h1 id="result-disclaimer"></h1>
       <h2 id="result-score">Hai totalizzato <span id="score-num"></span> punti</h2>
     </section>
-
     <div class="questions-box">
-    <section id="question-heading">
-      <h5 id="category"></h5>
-      <h1 id="question"></h1>
+      <section id="question-heading">
+        <h5 id="category"></h5>
+        <h1 id="question"></h1>
+      </section>
+      <section>
+        <div class="left-buttons">
+          <button class="answer_btn" onclick="setValue(this)">domanda1</button>
+          <button class="answer_btn" onclick="setValue(this)">domanda2</button>
+        </div>
+        <div class="right-buttons">
+          <button class="answer_btn" onclick="setValue(this)">domanda3</button>
+          <button class="answer_btn" onclick="setValue(this)">domanda4</button>
+          <input type="hidden" id="answer_field">
+        </div>
+
+        <button id="submit_btn" onclick="checkAnswer()" disabled>Conferma</button>
+    </div>
     </section>
-
-
-    
-      <!--  <div class="left-buttons">
-    <input type="radio" name="answer" id="first-answer" value=""><span></span>
-    <input type="radio" name="answer" id="second-answer" value=""><span></span>
-  </div>
-  <div class="right-buttons">
-    <input type="radio" name="answer" id="third-answer" value=""><span></span>
-    <input type="radio" name="answer" id="fourth-answer" value=""><span></span>
-  </div> -->
-      <div class="left-buttons">
-        <button class="answer_btn" onclick="setValue(this.value)">domanda1</button>
-        <button class="answer_btn" onclick="setValue(this.value)">domanda2</button>
-      </div>
-      <div class="right-buttons">
-        <button class="answer_btn" onclick="setValue(this.value)">domanda3</button>
-        <button class="answer_btn" onclick="setValue(this.value)">domanda4</button>
-        <input type="hidden" id="answer_field">
-      </div>
-    
-    <button id="submit_btn" onclick="checkAnswer()" disabled>Conferma</button>
-  </div>
-
   </div>
 
 
@@ -94,7 +91,7 @@
         type: 'multiple',
         difficulty: 'easy',
         question:
-          'In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?',
+          'In the programming language Java, which of these keywords would you put on a variable to make sure it doesn\'t get modified?',
         correct_answer: 'Final',
         incorrect_answers: ['Static', 'Private', 'Public'],
       },
@@ -141,7 +138,7 @@
         type: 'multiple',
         difficulty: 'easy',
         question:
-          'What is the code name ffirst-questionr the mobile operating system Android 7.0?',
+          'What is the code name first-questionr the mobile operating system Android 7.0?',
         correct_answer: 'Nougat',
         incorrect_answers: [
           'Ice Cream Sandwich',
@@ -170,29 +167,60 @@
         type: 'multiple',
         difficulty: 'easy',
         question:
-          'Which programming language shares its name wfirst-questionth an island in Indonesia?',
+          'Which programming language shares its name with an island in Indonesia?',
         correct_answer: 'Java',
         incorrect_answers: ['Python', 'C', 'Jakarta'],
       },
-    ]
+    ];
 
-    window.onload = function () {
-      // ANCORA SUGGERIMENTI :)
-      // Se stai mostrando al giocatore tutte le domande in un colpo solo:
-      // Per ogni domanda, crea un elemento contenitore; poi crea un radio button (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
-      // con, come opzioni, sia la risposta corretta che quella/e non corretta/e. (puoi utilizzare google per capire come recuperare il valore di un
-      // radio button per il punteggio finale)
-      //
-      // Se stai mostrando al giocatore le domande una alla volta:
-      // All'inizio mostra la prima domanda con il testo i i radio buttons. Quando il giocatore seleziona una risposta, prendi la domanda
-      // successiva dall'elenco e rimpiazza la domanda vecchia, salvando la risposta selezionata in una variabile.
-    }
+
+
+    // ANCORA SUGGERIMENTI :)
+    // Se stai mostrando al giocatore tutte le domande in un colpo solo:
+    // Per ogni domanda, crea un elemento contenitore; poi crea un radio button (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio)
+    // con, come opzioni, sia la risposta corretta che quella/e non corretta/e. (puoi utilizzare google per capire come recuperare il valore di un
+    // radio button per il punteggio finale)
+    //
+    // Se stai mostrando al giocatore le domande una alla volta:
+    // All'inizio mostra la prima domanda con il testo i i radio buttons. Quando il giocatore seleziona una risposta, prendi la domanda
+    // successiva dall'elenco e rimpiazza la domanda vecchia, salvando la risposta selezionata in una variabile.
+
 
     // Come calcolare il punteggio? Puoi farlo in 2 modi:
     // Se stai mostrando al giocatore tutte le domande in un colpo solo, seleziona tutti i radio buttons e controlla se la risposta selezionata
     // è quella corretta.
     // Se stai mostrando al giocatore le domande una alla volta, basta aggiungere o no 1 punto ogni volta che viene selezionata una risposta.
 
+
+
+    let timerSec;
+    window.onload = (event) => {
+      start = document.getElementById('start_btn');
+      start.addEventListener('click', function () {
+        start.parentNode.remove();
+        createQuestion(index, 20);
+      });
+    }
+
+    function timer(time) {
+      document.getElementById("time").innerText = time;
+      timerSec = setInterval(function () {
+        time--
+        if (time != 0 || time > 0) {
+          document.getElementById("time").innerText = time
+        } else {
+          document.getElementById("time").innerText = 0;
+          clearInterval(timerSec);
+          document.getElementById('submit_btn').innerText = 'TEMPO SCADUTO!';
+          document.getElementById('submit_btn').disabled = false;
+          document.getElementById('submit_btn').style.backgroundColor = 'brown';
+          document.getElementById('submit_btn').style.borderBlockColor = 'brown';
+          setTimeout(function () {
+            checkAnswer();
+          }, 2000)
+        }
+      }, 1000)
+    }
     function shuffle(array) {
       for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -203,55 +231,49 @@
     let index = 0;
     let score = 0;
 
-    function createQuestion(i) {
-      
-        document.querySelector('.questions-box').style.transform = 'translateX(0)';
-        document.getElementById('question').innerText = questions[i].question;
-        document.getElementById('category').innerText = questions[i].category;
-        possibleAnswers = [];
-        possibleAnswersLabel = [];
-        possibleAnswers = questions[i].incorrect_answers;
-        possibleAnswers.push(questions[i].correct_answer);
-        shuffle(possibleAnswers);
-        possibleAnswersLabel = [...possibleAnswers];
-
-        possibleAnswers.forEach((elem, index) => possibleAnswers[index] = elem.toLowerCase().replaceAll(' ', '_'));
-
-        /*   for (let ind = 0; ind < document.querySelectorAll('[type="radio"]').length; ind++) {
-             document.querySelectorAll('[type="radio"]')[ind].value = possibleAnswers[ind];
-            document.querySelectorAll('[type="radio"] + span')[ind].innerText = possibleAnswersLabel[ind]; 
-        
-          } */
-        for (let ind = 0; ind < document.querySelectorAll('.answer_btn').length; ind++) {
-          document.querySelectorAll('.answer_btn')[ind].value = possibleAnswers[ind];
-          document.querySelectorAll('.answer_btn')[ind].innerText = possibleAnswersLabel[ind];
-
-        }
-      
+    function createQuestion(i, tmp) {
+      timer(tmp);
+      document.getElementById('question').innerText = questions[i].question;
+      document.getElementById('category').innerText = questions[i].category;
+      possibleAnswers = [];
+      possibleAnswersLabel = [];
+      possibleAnswers = questions[i].incorrect_answers;
+      possibleAnswers.push(questions[i].correct_answer);
+      shuffle(possibleAnswers);
+      possibleAnswersLabel = [...possibleAnswers];
+      possibleAnswers.forEach((elem, index) => possibleAnswers[index] = elem.toLowerCase().replaceAll(' ', '_'));
+      for (let ind = 0; ind < document.querySelectorAll('.answer_btn').length; ind++) {
+        document.querySelectorAll('.answer_btn')[ind].value = possibleAnswers[ind];
+        document.querySelectorAll('.answer_btn')[ind].innerText = possibleAnswersLabel[ind];
+      }
+      document.querySelector('.questions-box').style.transform = 'translateX(0)';
+      document.querySelector('.quiz-container').style.backgroundBlendMode = 'multiply';
     }
-    function setValue(val) {
 
-      document.getElementById('answer_field').value = val;
+    function setValue(el) {
+      document.querySelectorAll('.active').forEach(elem => elem.classList.remove('active'));
+      el.classList.add('active');
+      document.getElementById('answer_field').value = el.value;
       document.getElementById('submit_btn').disabled = false;
-
     }
-    createQuestion(index);
 
 
 
     function checkAnswer() {
-
+      clearInterval(timerSec);
+      document.querySelector('.quiz-container').style.backgroundBlendMode = 'normal';
 
       /* if(document.querySelector('input:checked').value === questions[index].correct_answer.toLowerCase().replaceAll(' ', '_')){ */
+
       if (document.getElementById('answer_field').value === questions[index].correct_answer.toLowerCase().replaceAll(' ', '_')) {
         document.getElementById('submit_btn').innerText = 'GIUSTO!';
         console.log('OK');
         score++;
         index++;
-        setTimeout(function(){
-        document.querySelector('.questions-box').style.transform = 'translateX(-100vw)';
-        },500);
-        
+        setTimeout(function () {
+          document.querySelector('.questions-box').style.transform = 'translateX(-100vw)';
+        }, 1000);
+
       } else {
         console.log(questions[index].correct_answer);
         document.getElementById('submit_btn').style.backgroundColor = 'brown';
@@ -259,42 +281,47 @@
         document.getElementById('submit_btn').innerText = 'SBAGLIATO!';
         console.log('ERROR');
         index++
-        setTimeout(function(){
-        document.querySelector('.questions-box').style.transform = 'translateX(-100vw)';
-        },500);
+        setTimeout(function () {
+          document.querySelector('.questions-box').style.transform = 'translateX(-100vw)';
+        }, 1000);
       }
       if (index < questions.length) {
-      setTimeout(function () {
-        document.getElementById('submit_btn').style = '';
-        document.getElementById('submit_btn').disabled = true;
-        document.getElementById('submit_btn').innerText = 'CONFERMA!';
-        createQuestion(index);
-      }, 2000);
-    }else{
-      let disclaimer = document.getElementById('result-disclaimer');
-      switch(true){
-        case score <= 2 :
-      disclaimer.innerText = 'FAI CAGARISSIMO';
-      break;
-      case score >2 && score <=6 :
-      disclaimer.innerText = 'FAI SCHIFO';
-      break;
-      case score >6 && score <=7 :
-      disclaimer.innerText = 'BRAVO MA PUOI FARE MEGLIO';
-      break;
-      case score >7 && score <=9 :
-      disclaimer.innerText = 'SEI UN GRANDE!!';
-      break;
-      case score ==9 :
-      disclaimer.innerText = 'MA CHI CAZZO SEI! IL NUMERO UNO!';
-      break;
+        setTimeout(function () {
+          if (document.querySelector('.active') !== null) {
+            document.querySelector('.active').classList.remove('active');
+          }
+          document.getElementById('submit_btn').style = '';
+          document.getElementById('submit_btn').disabled = true;
+          document.getElementById('submit_btn').innerText = 'CONFERMA';
+          createQuestion(index, 20);
+        }, 2000);
+      } else {
+        let disclaimer = document.getElementById('result-disclaimer');
+        switch (true) {
+          case score <= 2:
+            disclaimer.innerText = 'FAI CAGARISSIMO';
+            break;
+          case score > 2 && score <= 6:
+            disclaimer.innerText = 'FAI SCHIFO';
+            break;
+          case score > 6 && score <= 7:
+            disclaimer.innerText = 'BRAVO MA PUOI FARE MEGLIO';
+            break;
+          case score > 7 && score <= 9:
+            disclaimer.innerText = 'SEI UN GRANDE!!';
+            break;
+          case score == 10:
+            disclaimer.innerText = 'MA CHI CAZZO SEI! IL NUMERO UNO!';
+            break;
+
+        }
+        document.getElementById('score-num').innerText = score;
+        setTimeout(function () {
+          document.getElementById('result-heading').style.display = 'block';
+        }, 2000);
+
 
       }
-      document.getElementById('score-num').innerText = score;
-      document.getElementById('result-heading').style.display = 'block';
-
-
-    }
     }
   </script>
 </body>
