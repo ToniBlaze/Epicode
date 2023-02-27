@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #875727;
+}
+
+nav {
+    width: 50vw;
+    min-width: 800px;
+    margin: 20px auto;
+    height: 8rem;
+}
+
+.nav-bar-container {
+    max-width: 1000px;
+    min-width: 800px;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.flex-evenly {
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.rounder {
+    border-radius: 6rem;
+}
+
+.round {
+    border-radius: 4rem;
+}
+
+.lil-round {
+    border-radius: 1.5rem;
+}
+
+.std-bg-color-light {
+    background-color: #fbf7e3;
+}
+
+.std-bg-color-dark {
+    background-color: #f3df85;
+}
+
+.nav-btn {
+    min-width: 7rem;
+    height: 3rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.nav-btn-big {
+    min-width: 10rem;
+    height: 4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.product-card {
+    width: 340px;
+    height: 450px;
+    padding: 20px;
+
+}
+
+.product-card-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+
+.card-top {
+    height: 65%;
+    width: 100%;
+    background: url("./assets/honey.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.card-text,
+.card-btn-container {
+    height: 20%;
+}
+
+#card-price {
+    font-size: 1.3rem;
+}
+
+.add-cart {
+    min-width: 10rem;
+    height: 2rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: .8rem;
+    border: none;
+    cursor: pointer
+}
+
+article {
+    width: 80vw;
+    margin: auto;
+    height: 300px;
+    overflow: hidden;
+    margin: 100px auto;
+}
+
+article img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+}
+
+.article-left {
+    width: 50%;
+    margin: 20px 30px;
+    font-size: .8rem;
+}
+
+.article-right {
+    width: 50%;
+    font-size: .8rem;
+    align-self: flex-start;
+    margin: 0 10px;
+}
+
+.article-right h3 {
+    margin: 20px 0 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    article {
+        width: 330px;
+        flex-direction: column-reverse;
+        height: 600px;
+        align-items: center;
+        justify-content: flex-end !important;
+
+    }
+
+    .article-right,
+    .article-left {
+        width: 90%;
+    }
+
+}
+
+}
